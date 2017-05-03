@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1493776452 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.cpp
+	"AssocTab.h"
+
+1493776432 /home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.h
+	<iostream>
+	<stdlib.h>
+
+1492553815 /home/wojtek/Documents/PROI17L/Project2/PROI2/Furniture.h
+	<iostream>
+	<string>
+
+1492541964 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Catalog.cpp
+	"Catalog.h"
+
+1493776465 /home/wojtek/Documents/PROI17L/Project2/PROI2/Catalog.h
+	"AssocTab.h"
+
+1492554666 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Furniture.cpp
+	"Furniture.h"
+
+1493164387 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/main.cpp
+	<iostream>
+
+1492542001 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Menu.cpp
+	"Menu.h"
+
+1492542001 /home/wojtek/Documents/PROI17L/Project2/PROI2/Menu.h
+
+1492541981 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Test.cpp
+	"Test.h"
+
+1492541981 /home/wojtek/Documents/PROI17L/Project2/PROI2/Test.h
+

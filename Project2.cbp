@@ -20,6 +20,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AssocTab.cpp" />
+		<Unit filename="AssocTab.h" />
+		<Unit filename="Catalog.cpp" />
+		<Unit filename="Catalog.h" />
+		<Unit filename="Furniture.cpp" />
+		<Unit filename="Furniture.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="Test.cpp" />
+		<Unit filename="Test.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -14,16 +14,17 @@ template <class Key, class Value> struct node
 
 template <class Key , class Value> class AssocTab
 {
+    public:
     node<Key, Value>* root=NULL;
     node<Key, Value>* most_left(node<Key, Value> *start)
-     {
+    {
       if(start->l_son != NULL)
         return most_left(start->l_son);
        else
         return start;
      }
     node<Key, Value>* lookForVal(node<Key, Value>* start, Key value)
-     {
+    {
        //jezeli wezel ma szukana wartosc to odnalezlismy go
        if (start->value == value) return start;
        //jezeli szukana wartosc jest mniejsza to szukamy w lewym poddrzewie o ile istnieje
@@ -34,7 +35,7 @@ template <class Key , class Value> class AssocTab
      }
 
     Key addNode(Key n, node<Key, Value>* start)
-     {
+    {
       //jezeli drzewo jest puste to dodaj korzen
       if (root == NULL)
        {
@@ -165,11 +166,12 @@ template <class Key , class Value> class AssocTab
     void in_order_tree_walk(node<Key, Value>* start)
     {
       if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
-       in_order_tree_walk(start->l_son);
-
+      in_order_tree_walk(start->l_son);
+      std::cout<<start->value<<std::endl;
       if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
        in_order_tree_walk(start->r_son);
      }
+
 
     public:
         //AssocTab();

@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1493776452 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.cpp
+1493833796 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.cpp
 	"AssocTab.h"
 
-1493776432 /home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.h
+1493835476 /home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.h
 	<iostream>
 	<stdlib.h>
 
@@ -31,4 +31,10 @@
 	"Test.h"
 
 1492541981 /home/wojtek/Documents/PROI17L/Project2/PROI2/Test.h
+
+1493833833 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/BSTree.cpp
+	"BSTree.h"
+
+1493833833 /home/wojtek/Documents/PROI17L/Project2/PROI2/BSTree.h
+	<iostream>
 

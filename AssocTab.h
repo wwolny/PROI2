@@ -15,14 +15,14 @@ template <class Key, class Value> struct node
 template <class Key , class Value> class AssocTab
 {
     node<Key, Value>* root=NULL;
-    node* most_left(struct node *start)
+    node<Key, Value>* most_left(node<Key, Value> *start)
      {
       if(start->l_son != NULL)
         return most_left(start->l_son);
        else
         return start;
      }
-    node* lookForVal(struct node *start, int value)
+    node<Key, Value>* lookForVal(node<Key, Value>* start, Key value)
      {
        //jezeli wezel ma szukana wartosc to odnalezlismy go
        if (start->value == value) return start;
@@ -33,12 +33,12 @@ template <class Key , class Value> class AssocTab
        return NULL;
      }
 
-    int addNode(int n, struct node *start)
+    Key addNode(Key n, node<Key, Value>* start)
      {
       //jezeli drzewo jest puste to dodaj korzen
       if (root == NULL)
        {
-        root = (node*)malloc(sizeof *root);
+        root = (node<Key, Value>*)malloc(sizeof *root);
         root->value = n;
         root->l_son = NULL;
         root->r_son = NULL;
@@ -55,7 +55,7 @@ template <class Key , class Value> class AssocTab
         //jezeli lewe poddrzewo nie istnieje dodaj nowy wezel o zadanej wartosci
          else
          {
-          node *newNode = (node*)malloc(sizeof *root);
+          node<Key, Value>* newNode = (node<Key, Value>*)malloc(sizeof *root);
           newNode->value = n;
           newNode->l_son = NULL;
           newNode->r_son = NULL;
@@ -74,7 +74,7 @@ template <class Key , class Value> class AssocTab
          //jezeli prawe poddrzewo nie istnieje dodaj nowy wezel o zadanej wartosci
          else
           {
-           node *newNode = (node*)malloc(sizeof *root);
+           node<Key, Value>* newNode = (node<Key, Value>*)malloc(sizeof *root);
            newNode->value = n;
            newNode->l_son = NULL;
            newNode->r_son = NULL;
@@ -85,7 +85,7 @@ template <class Key , class Value> class AssocTab
       return 0;
      }
 
-    void delNode(struct node *start)
+    void delNode(node<Key, Value>* start)
     {
       //jezeli wezel nie ma dzieci
       if(start->l_son==NULL && start->r_son==NULL)
@@ -155,14 +155,14 @@ template <class Key , class Value> class AssocTab
       else
       {
        //wstaw w miejsce usuwanego elementu - najmniejsza wartosc z prawego poddrzewa
-       struct node *temp;
+       node<Key, Value>* temp;
        temp=most_left(start->r_son);
        start->value = temp->value;
        delNode(temp);
       }
      }
 
-    void in_order_tree_walk(struct node *start)
+    void in_order_tree_walk(node<Key, Value>* start)
     {
       if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
        in_order_tree_walk(start->l_son);

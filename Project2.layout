@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Furniture.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Furniture.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="422" topLine="0" />
+			<Cursor1 position="186" topLine="1" />
 		</Cursor>
+		<Folding>
+			<Collapse line="14" />
+		</Folding>
 	</File>
-	<File name="Test.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="94" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="BSTree.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="BSTree.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1047" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="BSTree.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Catalog.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="185" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="AssocTab.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="AssocTab.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6025" topLine="6" />
+		</Cursor>
+		<Folding>
+			<Collapse line="19" />
+			<Collapse line="26" />
+			<Collapse line="37" />
+			<Collapse line="48" />
+			<Collapse line="103" />
+		</Folding>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="152" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Test.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="173" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="AssocTab.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="183" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Catalog.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="BSTree.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Test.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="94" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Menu.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -46,31 +56,24 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="AssocTab.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Catalog.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="299" topLine="4" />
+			<Cursor1 position="22" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="19" />
-			<Collapse line="26" />
-		</Folding>
 	</File>
 	<File name="Menu.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Catalog.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Furniture.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="74" topLine="0" />
+			<Cursor1 position="422" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Furniture.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Test.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="186" topLine="1" />
+			<Cursor1 position="679" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="14" />
-		</Folding>
 	</File>
 </CodeBlocks_layout_file>

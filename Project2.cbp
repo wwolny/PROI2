@@ -22,8 +22,6 @@
 		</Compiler>
 		<Unit filename="AssocTab.cpp" />
 		<Unit filename="AssocTab.h" />
-		<Unit filename="BSTree.cpp" />
-		<Unit filename="BSTree.h" />
 		<Unit filename="Catalog.cpp" />
 		<Unit filename="Catalog.h" />
 		<Unit filename="Furniture.cpp" />

@@ -18,13 +18,21 @@ bool Test::ifAssocArr()
     Furniture table("table", 400, 25);
     MyMap.addNode(6, table, MyMap.getRoot());
     Furniture desk("desk", 14, 35);
-   /* MyMap.addNode(7, desk, MyMap.getRoot());
+    MyMap.addNode(7, desk, MyMap.getRoot());
     Furniture sofa("sofa", 11, 53);
     MyMap.addNode(8, sofa, MyMap.getRoot());
     Furniture bed("bed", 14, 53);
     MyMap.addNode(1, bed, MyMap.getRoot());
-    *///std::cout<<MyMap.lookForKey(MyMap.getRoot(), 7)->val.getMass()<<std::endl;
-    MyMap.in_order_tree_walk(MyMap.getRoot());
-
+    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 7));
+    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 65));
+    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 3));
+    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 3));
+    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 1));
+    return 1;
+}
+bool Test::ifFile()
+{
+    Catalog testCat;
+    testCat.allFile("./plik.txt");
     return 1;
 }

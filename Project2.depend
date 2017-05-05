@@ -2,7 +2,7 @@
 1493836981 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.cpp
 	"AssocTab.h"
 
-1493845069 /home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.h
+1493917672 /home/wojtek/Documents/PROI17L/Project2/PROI2/AssocTab.h
 	<iostream>
 	<stdlib.h>
 
@@ -10,34 +10,38 @@
 	<iostream>
 	<string>
 
-1492541964 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Catalog.cpp
+1493917504 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Catalog.cpp
 	"Catalog.h"
 
-1493840982 /home/wojtek/Documents/PROI17L/Project2/PROI2/Catalog.h
+1493916434 /home/wojtek/Documents/PROI17L/Project2/PROI2/Catalog.h
 	"Furniture.h"
 	"AssocTab.h"
+	<iostream>
+	<fstream>
 
 1492554666 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Furniture.cpp
 	"Furniture.h"
 
-1493836309 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/main.cpp
+1493917472 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/main.cpp
 	<iostream>
 	"Furniture.h"
 	"AssocTab.h"
 	"Test.h"
+	"Catalog.h"
 
 1492542001 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Menu.cpp
 	"Menu.h"
 
 1492542001 /home/wojtek/Documents/PROI17L/Project2/PROI2/Menu.h
 
-1493843538 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Test.cpp
+1493915474 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/Test.cpp
 	"Test.h"
 
-1493836001 /home/wojtek/Documents/PROI17L/Project2/PROI2/Test.h
+1493914890 /home/wojtek/Documents/PROI17L/Project2/PROI2/Test.h
 	<iostream>
 	"Furniture.h"
 	"AssocTab.h"
+	"Catalog.h"
 
 1493833833 source:/home/wojtek/Documents/PROI17L/Project2/PROI2/BSTree.cpp
 	"BSTree.h"

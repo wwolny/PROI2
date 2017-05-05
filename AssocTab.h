@@ -11,9 +11,25 @@ template <class Key, class Value> struct node
     struct node *l_son;
     struct node *r_son;
     public:
-    node(){}
+    node(Key k, Value v): key(k), val(v), l_son(NULL), r_son(NULL), parent(NULL){}
     ~node()
     {
+        parent=NULL;
+        l_son=NULL;
+        r_son=NULL;
+    }
+    node(const node &tmp)
+    {
+        key=tmp.key;
+        val=tmp.val;
+        parent=NULL;
+        l_son=NULL;
+        r_son=NULL;
+    }
+    node & operator=(const node *tmp)
+    {
+        key=tmp->key;
+        val=tmp->val;
         parent=NULL;
         l_son=NULL;
         r_son=NULL;
@@ -110,6 +126,8 @@ template <class Key , class Value> class AssocTab
 
     void delNode(node<Key, Value>* start)
     {
+      if(start==NULL) return;
+      if(lookForKey(start, start->key)==NULL)return;
       //jezeli wezel nie ma dzieci
       if(start->l_son==NULL && start->r_son==NULL)
       {
@@ -200,20 +218,26 @@ template <class Key , class Value> class AssocTab
       if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
        in_order_tree_walk(start->r_son);
      }
-
-
-    public:
-        AssocTab(){}
-        ~AssocTab()
+    AssocTab(){}
+    ~AssocTab()
+    {
+        while(root)
         {
-            while(root)
-            {
-                delNode(most_left(root));
-            }
+            delNode(most_left(root));
         }
-        AssocTab(const AssocTab &tmp){}
+    }
     private:
     node<Key, Value>* root=NULL;
 };
+
+template <class Key, class Value> bool isKey(Key k, node<Key, Value>* start)
+{
+    if(start->l_son != NULL)//jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
+    if(isKey(k, start->l_son)==true)return true;
+    if(start->key==k){return true;}
+    if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
+    if(isKey(k, start->r_son)==true)return true;
+    return false;
+}
 
 #endif // ASSOCTAB_H

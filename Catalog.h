@@ -22,7 +22,7 @@ class Catalog
         Catalog();
         ~Catalog();
         private:
-        void orderOutToFile(node<int, Furniture>* start, std::string fname);
+        //void orderOutToFile(node<int, Furniture>* start, std::string fname);
         AssocTab<int, Furniture> MyCatalog;
 };
 

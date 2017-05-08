@@ -44,15 +44,14 @@ int Catalog::allFile(std::string fname)//wypisz wszystkie w pliku
     pfile=&file;
     file<<"Welcome!"<<std::endl<<"This is furniture catalog."<<std::endl;
     file<<"Furnitures that are in the catalog:"<<std::endl;
-    orderOutToFile(MyCatalog.getRoot(), fname);
-    file<<"Key: ";
+    //orderOutToFile(MyCatalog.getRoot(), fname);
     return 1;
 }
-void Catalog::orderOutToFile(node<int, Furniture>* start, std::string fname)
+/*void Catalog::orderOutToFile(node* start, std::string fname)
 {
     std::ofstream file;//("plik.txt");
     file.open( fname.c_str(), std::ios::out);
-    if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
+    if(start->l_son == NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
     {
         orderOutToFile(start->l_son, fname);
     }
@@ -61,7 +60,7 @@ void Catalog::orderOutToFile(node<int, Furniture>* start, std::string fname)
     file<<"     Price: "<<start->val.getPrice()<<"      Mass: "<<start->val.getMass()<<std::endl;
     if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
     orderOutToFile(start->r_son, fname);
-}
+}*/
 node<int, Furniture>* Catalog::findFurn(int key)
 {
     return MyCatalog.lookForKey(MyCatalog.getRoot(), key);

@@ -12,19 +12,19 @@ Catalog Catalog::findFurnN(std::string name)
 }
 int Catalog::addFurn(int key, std::string name, int price, int mass)
 {
-    if(isKey(key, MyCatalog.getRoot())==true) return 0;
+    if(MyMap.isKey(key, MyMap.getRoot())==true) return 0;
     Furniture furn;
     if(name!="")
         furn.setName(name);
     if(price>0) furn.setPrice(price);
     if(mass>0) furn.setMass(mass);
-    MyCatalog.addNode(key, furn, MyCatalog.getRoot());
+    MyMap.addNode(key, furn, MyMap.getRoot());
     return 1;
 }
 int Catalog::delFurnK(int key)
 {
-    if(isKey(key, MyCatalog.getRoot())==false) return 0;
-    MyCatalog.delNode(findFurn(key));
+    if(isKey(key, MyMap.getRoot())==false) return 0;
+    MyMap.delNode(findFurn(key));
     return 1;
 }
 int Catalog::editFurn(int key, std::string newName, int newPrice, int newMass)
@@ -47,11 +47,11 @@ int Catalog::allFile(std::string fname)//wypisz wszystkie w pliku
     //orderOutToFile(MyCatalog.getRoot(), fname);
     return 1;
 }
-/*void Catalog::orderOutToFile(node* start, std::string fname)
+/*void Catalog::orderOutToFile(struct node<int, Furniture>* start, std::string fname)
 {
     std::ofstream file;//("plik.txt");
     file.open( fname.c_str(), std::ios::out);
-    if(start->l_son == NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
+    if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
     {
         orderOutToFile(start->l_son, fname);
     }
@@ -63,12 +63,12 @@ int Catalog::allFile(std::string fname)//wypisz wszystkie w pliku
 }*/
 node<int, Furniture>* Catalog::findFurn(int key)
 {
-    return MyCatalog.lookForKey(MyCatalog.getRoot(), key);
+    return MyMap.lookForKey(MyMap.getRoot(), key);
 }
 
 Furniture Catalog::findFurnK(int key)//zwraca pusty mebel jesli nie ma
 {
     Furniture tmp;
     if(findFurn(key)==NULL)return tmp;
-    return MyCatalog.lookForKey(MyCatalog.getRoot(), key)->val;
+    return MyMap.lookForKey(MyMap.getRoot(), key)->val;
 }

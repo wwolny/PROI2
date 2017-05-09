@@ -22,8 +22,8 @@ class Catalog
         Catalog();
         ~Catalog();
         private:
-        //void orderOutToFile(node<int, Furniture>* start, std::string fname);
-        AssocTab<int, Furniture> MyCatalog;
+        //void orderOutToFile(struct node* start, std::string fname);
+        AssocTab<int, Furniture> MyMap;
 };
 
 #endif // CATALOG_H

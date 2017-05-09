@@ -15,15 +15,14 @@ class Catalog
         Catalog findFurnN(std::string name);//usuwa wszystkie o tej nazwie
         int editFurn(int key, std::string newName="", int newPrice=-1, int newMass=-1);
         int allFile(std::string fname);//wypisz wszystkie w pliku
-        int getKey();
-
+        int isKeyMap(int key);
         node<int, Furniture>* findFurn(int key);
         Furniture findFurnK(int key);
         Catalog();
         ~Catalog();
         AssocTab<int, Furniture> MyMap;//do priv
         private:
-        //void orderOutToFile(struct node* start, std::string fname);
+        void orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile);
         //AssocTab<int, Furniture> MyMap;
 };
 

@@ -69,10 +69,10 @@ void Menu::startMenu()
                 break;*/
             case 't':
                 this->writeFurnAll();
-                break;/*
+                break;
             case 'f':
                 this->writeAllFurnFile();
-                break;*/
+                break;
             case 'l':
                 return;
             default:
@@ -129,10 +129,65 @@ int Menu::delFurn()
     if(MyCatalog.delFurnK(key)==1) return this->Success();
     else return this->Fail();
 }
-int Menu::editFurn(){}
+int Menu::editFurn()
+{
+    MyCatalog.MyMap.in_order_tree_walk(MyCatalog.MyMap.getRoot());//do zmiany
+    char c;
+    std::string name="";
+    int price=0, mass=0, key=0;
+    std::cout<<"Type exactly the key of furniture that should be edited: ";
+    std::cin>>c;
+    if(!std::isdigit(c))    return this->Fail();
+    std::cin.unget();
+    std::cin>>key;
+    if(!isIntOK())      return this->Fail();
+    std::cin.ignore(1000,'\n');
+    if(MyCatalog.isKeyMap(key)==0)return this->Fail();
+    std::cout<<"Type new name of the furniture: ";
+    std::cin>>name;
+    std::cin.ignore(1000,'\n');
+    std::cout<<"Type new price of the furniture: ";
+    std::cin>>c;
+    if(!std::isdigit(c)) return this->Fail();
+    std::cin.unget();
+    std::cin>>price;
+    if(!isIntOK()) return this->Fail();
+    std::cin.ignore(1000,'\n');
+    std::cout<<"Type new mass of furniture: ";
+    std::cin>>c;
+    if(!std::isdigit(c)) return this->Fail();
+    std::cin.unget();
+    std::cin>>mass;
+    if(!isIntOK()) return this->Fail();
+    std::cin.ignore(1000,'\n');
+    /*std::cout<<"Do You want to change the key? [y]: ";
+    std::cin>>c;
+    if(c=='y')
+    {
+        std::cout<<"Type new key of the furniture: ";
+        std::cin>>c;
+        if(!std::isdigit(c))    return this->Fail();
+        std::cin.unget();
+        std::cin>>key;
+        if(!isIntOK())      return this->Fail();
+        std::cin.ignore(1000,'\n');
+    }*/
+    if(MyCatalog.editFurn(key,name, price, mass)==1)return this->Success();
+    else return this->Fail();
+}
 int Menu::writeFurnAll()
 {
     MyCatalog.MyMap.in_order_tree_walk(MyCatalog.MyMap.getRoot());
+    return this->Success();
+}
+void Menu::writeAllFurnFile()
+{
+    char c;
+    std::string fname="";
+    std::cout<<"Type name of file: ";
+    std::cin>>fname;
+    std::cin.ignore(1000,'\n');
+    MyCatalog.allFile(fname);
 }
 
 /*

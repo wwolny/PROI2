@@ -43,6 +43,7 @@ class Menu
         int writeFurnAll();
         void options();
         void writeFurn(int key);
+        void writeAllFurnFile();
         int creFurn();
         int editFurn();
         int delFurn();

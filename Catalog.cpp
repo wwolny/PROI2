@@ -12,7 +12,7 @@ Catalog Catalog::findFurnN(std::string name)
 }
 int Catalog::addFurn(int key, std::string name, int price, int mass)
 {
-    if(isKey(key, MyMap.getRoot())==true) return 0;
+    if(isKeyMap(key)==true) return 0;
     Furniture furn;
     if(name!="")
         furn.setName(name);
@@ -23,13 +23,13 @@ int Catalog::addFurn(int key, std::string name, int price, int mass)
 }
 int Catalog::delFurnK(int key)
 {
-    if(isKey(key, MyMap.getRoot())==false) return 0;
+    if(isKeyMap(key)==false) return 0;
     MyMap.delNode(findFurn(key));
     return 1;
 }
-int Catalog::editFurn(int key, std::string newName, int newPrice, int newMass)
+int Catalog::editFurn(int key, std::string newName, int newPrice, int newMass)//cannt change key
 {
-    if(findFurn(key)==NULL)return 0;
+    if(isKeyMap(key)==false) return 0;
     if(newName!="") findFurn(key)->val.setName(newName);
     if(newPrice>0) findFurn(key)->val.setPrice(newPrice);
     if(newMass>0) findFurn(key)->val.setMass(newMass);
@@ -44,23 +44,24 @@ int Catalog::allFile(std::string fname)//wypisz wszystkie w pliku
     pfile=&file;
     file<<"Welcome!"<<std::endl<<"This is furniture catalog."<<std::endl;
     file<<"Furnitures that are in the catalog:"<<std::endl;
-    //orderOutToFile(MyCatalog.getRoot(), fname);
+    orderOutToFile(MyMap.getRoot(), pfile);
     return 1;
 }
-/*void Catalog::orderOutToFile(struct node<int, Furniture>* start, std::string fname)
-{
+void Catalog::orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile)
+{/*
     std::ofstream file;//("plik.txt");
-    file.open( fname.c_str(), std::ios::out);
+    file.open( fname.c_str(), std::ios::out);*/
+    if(start==NULL) return;
     if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
     {
-        orderOutToFile(start->l_son, fname);
+        orderOutToFile(start->l_son, pfile);
     }
-    file<<"Key: "<<start->key<<"    Name: ";
-    file.write(&start->val.getName()[0], start->val.getName().length());
-    file<<"     Price: "<<start->val.getPrice()<<"      Mass: "<<start->val.getMass()<<std::endl;
+    *pfile<<"Key: "<<start->key<<"    Name: ";
+    pfile->write(&start->val.getName()[0], start->val.getName().length());
+    *pfile<<"     Price: "<<start->val.getPrice()<<"      Mass: "<<start->val.getMass()<<std::endl;
     if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
-    orderOutToFile(start->r_son, fname);
-}*/
+        orderOutToFile(start->r_son, pfile);
+}
 node<int, Furniture>* Catalog::findFurn(int key)
 {
     return MyMap.lookForKey(MyMap.getRoot(), key);
@@ -71,4 +72,10 @@ Furniture Catalog::findFurnK(int key)//zwraca pusty mebel jesli nie ma
     Furniture tmp;
     if(findFurn(key)==NULL)return tmp;
     return MyMap.lookForKey(MyMap.getRoot(), key)->val;
+}
+
+int Catalog::isKeyMap(int key)
+{
+    if(isKey(key, MyMap.getRoot())==true) return 1;//There is Key
+    else return 0;//There is no key
 }

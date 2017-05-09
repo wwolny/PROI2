@@ -209,16 +209,6 @@ template <class Key , class Value> class AssocTab
       }
     }
 
-    //przeniesc do catalogu
-    void in_order_tree_walk(node<Key, Value>* start)
-    {
-        if(start==NULL) return;
-        if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
-          in_order_tree_walk(start->l_son);
-          std::cout<<start->key<<std::endl;
-          if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
-          in_order_tree_walk(start->r_son);
-     }
     AssocTab(){}
     ~AssocTab()
     {

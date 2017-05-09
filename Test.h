@@ -12,8 +12,9 @@ class Test
         ~Test();
         bool ifAssocArr();
         bool ifFile();
-    protected:
+        bool editCat();
     private:
+        Catalog* MyMap;
 };
 
 #endif // TEST_H

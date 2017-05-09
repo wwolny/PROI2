@@ -2,37 +2,68 @@
 
 Test::Test()
 {
-    //ctor
+    MyMap=new Catalog;
 }
 
 Test::~Test()
 {
-    //dtor
+    delete MyMap;
 }
 
-bool Test::ifAssocArr()
-{
-    AssocTab<int, Furniture> MyMap;
-    Furniture chair("chair", 100, 5);
-    MyMap.addNode(5, chair, MyMap.getRoot());
-    Furniture table("table", 400, 25);
-    MyMap.addNode(6, table, MyMap.getRoot());
-    Furniture desk("desk", 14, 35);
-    MyMap.addNode(7, desk, MyMap.getRoot());
-    Furniture sofa("sofa", 11, 53);
-    MyMap.addNode(8, sofa, MyMap.getRoot());
-    Furniture bed("bed", 14, 53);
-    MyMap.addNode(1, bed, MyMap.getRoot());
-    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 7));
-    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 65));
-    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 3));
-    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 3));
-    MyMap.delNode(MyMap.lookForKey(MyMap.getRoot(), 1));
-    return 1;
-}
 bool Test::ifFile()
 {
-    Catalog testCat;
-    testCat.allFile("./plik.txt");
+    if(MyMap->addFurn(59, "chair", 100, 5)==0) return 0;
+    if(MyMap->addFurn(22, "desk", 400, 25)==0) return 0;
+    if(MyMap->addFurn(38, "table", 14, 35)==0) return 0;
+    if(MyMap->addFurn(65, "bed", 14, 53)==0) return 0;
+    if(MyMap->addFurn(51, "regel", 100, 5)==0) return 0;
+    if(MyMap->addFurn(23, "wardrobe", 400, 25)==0) return 0;
+    if(MyMap->addFurn(36, "lamp", 14, 35)==0) return 0;
+    if(MyMap->addFurn(61, "bed", 14, 53)==0) return 0;
+    if(MyMap->addFurn(52, "sofa", 100, 5)==0) return 0;
+    if(MyMap->addFurn(23, "door", 400, 25)==1) return 0;
+    if(MyMap->addFurn(33, "radio", 14, 35)==0) return 0;
+    if(MyMap->addFurn(34, "window", 14, 53)==0) return 0;
+    MyMap->allFile("./plik.txt");
+    if(MyMap->delFurnK(59)==0) return 0;
+    if(MyMap->delFurnK(22)==0) return 0;
+    if(MyMap->delFurnK(38)==0) return 0;
+    if(MyMap->delFurnK(65)==0) return 0;
+    if(MyMap->delFurnK(51)==0) return 0;
+    if(MyMap->delFurnK(23)==0) return 0;
+    if(MyMap->delFurnK(36)==0) return 0;
+    if(MyMap->delFurnK(61)==0) return 0;
+    if(MyMap->delFurnK(52)==0) return 0;
+    if(MyMap->delFurnK(23)==1) return 0;
+    if(MyMap->delFurnK(33)==0) return 0;
+    if(MyMap->delFurnK(34)==0) return 0;
+    return 1;
+}
+bool Test::editCat()
+{
+    MyMap->addFurn(59, "chair", 100, 5);
+    if(MyMap->addFurn(59, "desk", 400, 25)==0)return 0;
+    MyMap->addFurn(38, "table", 14, 35);
+    MyMap->addFurn(65, "bed", 14, 53);
+    MyMap->addFurn(51, "regel", 100, 5);
+    MyMap->addFurn(23, "wardrobe", 400, 25);
+    MyMap->addFurn(36, "lamp", 14, 35);
+    MyMap->addFurn(61, "bed", 14, 53);
+    MyMap->addFurn(52, "sofa", 100, 5);
+    MyMap->addFurn(23, "door", 400, 25);
+    MyMap->addFurn(33, "radio", 14, 35);
+    MyMap->addFurn(34, "window", 14, 53);
+    MyMap->editFurn(59, "chair", 100, 5);
+    MyMap->editFurn(22, "desk", 400, 25);
+    MyMap->editFurn(38, "table", 14, 35);
+    MyMap->editFurn(65, "bed", 14, 53);
+    MyMap->editFurn(51, "regel", 100, 5);
+    MyMap->editFurn(23, "wardrobe", 400, 25);
+    MyMap->editFurn(36, "lamp", 14, 35);
+    MyMap->editFurn(61, "bed", 14, 53);
+    MyMap->editFurn(52, "sofa", 100, 5);
+    MyMap->editFurn(23, "door", 400, 25);
+    MyMap->editFurn(33, "radio", 14, 35);
+    MyMap->editFurn(34, "window", 14, 53);
     return 1;
 }

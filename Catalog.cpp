@@ -7,9 +7,6 @@ Catalog::Catalog()
 Catalog::~Catalog()
 {
 }
-Catalog Catalog::findFurnN(std::string name)
-{
-}
 int Catalog::addFurn(int key, std::string name, int price, int mass)
 {
     if(isKeyMap(key)==true) return 0;
@@ -48,9 +45,7 @@ int Catalog::allFile(std::string fname)//wypisz wszystkie w pliku
     return 1;
 }
 void Catalog::orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile)
-{/*
-    std::ofstream file;//("plik.txt");
-    file.open( fname.c_str(), std::ios::out);*/
+{
     if(start==NULL) return;
     if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
     {
@@ -62,6 +57,27 @@ void Catalog::orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile)
     if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
         orderOutToFile(start->r_son, pfile);
 }
+//-------------------------------------------------
+int Catalog::allWrite()//wypisz wszystkie w pliku
+{
+    std::cout<<"Furnitures that are in the catalog:"<<std::endl;
+    orderWrite(MyMap.getRoot());
+    return 1;
+}
+void Catalog::orderWrite(node<int, Furniture>* start)
+{
+    if(start==NULL) return;
+    if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
+    {
+        orderWrite(start->l_son);
+    }
+    std::cout<<"Key: "<<start->key<<"    Name: ";
+    std::cout<<start->val.getName();
+    std::cout<<"     Price: "<<start->val.getPrice()<<"      Mass: "<<start->val.getMass()<<std::endl;
+    if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
+        orderWrite(start->r_son);
+}
+//-------------------------------------------------
 node<int, Furniture>* Catalog::findFurn(int key)
 {
     return MyMap.lookForKey(MyMap.getRoot(), key);

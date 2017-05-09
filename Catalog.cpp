@@ -12,7 +12,7 @@ Catalog Catalog::findFurnN(std::string name)
 }
 int Catalog::addFurn(int key, std::string name, int price, int mass)
 {
-    if(MyMap.isKey(key, MyMap.getRoot())==true) return 0;
+    if(isKey(key, MyMap.getRoot())==true) return 0;
     Furniture furn;
     if(name!="")
         furn.setName(name);

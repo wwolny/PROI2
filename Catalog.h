@@ -21,9 +21,10 @@ class Catalog
         Furniture findFurnK(int key);
         Catalog();
         ~Catalog();
+        AssocTab<int, Furniture> MyMap;//do priv
         private:
         //void orderOutToFile(struct node* start, std::string fname);
-        AssocTab<int, Furniture> MyMap;
+        //AssocTab<int, Furniture> MyMap;
 };
 
 #endif // CATALOG_H

@@ -2,7 +2,6 @@
 #define ASSOCTAB_H
 #include <iostream>
 #include <stdlib.h>
-#include "Furniture.h"
 
 template <class Key, class Value> struct node
  {
@@ -41,21 +40,12 @@ template <class Key , class Value> class AssocTab
 {
     public:
     node<Key, Value>* getRoot(){return root;}
-    node<Key, Value>* getNow(){return now;}
-    void setNow(node<Key, Value>* update){now=update;}
     node<Key, Value>* most_left(node<Key, Value> *start)
     {
       if(start->l_son != NULL)
             return most_left(start->l_son);
        else
             return start;
-     }
-     node<Key, Value>* right(node<Key, Value> *start)
-    {
-      if(start->r_son != NULL)
-            return start->r_son;
-       else
-            return NULL;
      }
     node<Key, Value>* lookForKey(node<Key, Value>* start, Key key)
     {
@@ -79,7 +69,7 @@ template <class Key , class Value> class AssocTab
        return NULL;
      }
 
-    Key addNode(Key n, Value m, node<Key, Value>* start)
+    int addNode(Key n, Value m, node<Key, Value>* start)
     {
       //jezeli drzewo jest puste to dodaj korzen
       if (root == NULL)
@@ -134,10 +124,10 @@ template <class Key , class Value> class AssocTab
       return 0;
      }
 
-    Key delNode(node<Key, Value>* start)
+    void delNode(node<Key, Value>* start)
     {
-      if(start==NULL) return 0;
-      if(lookForKey(start, start->key)==NULL)return 0;
+      if(start==NULL) return;
+      if(lookForKey(start, start->key)==NULL)return;
       //jezeli wezel nie ma dzieci
       if(start->l_son==NULL && start->r_son==NULL)
       {
@@ -217,27 +207,17 @@ template <class Key , class Value> class AssocTab
            start->key = temp->key;
            delNode(temp);
       }
-      return 1;
-    }
-
-    Key isKey(Key k,node<Key, Value>* start)
-    {
-        if(start->l_son != NULL)//jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
-        if(isKey(k, start->l_son)==true)return 0;
-        if(start->key==k){return true;}
-        if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
-        if(isKey(k, start->r_son)==true)return 1;
-        return 0;
     }
 
     //przeniesc do catalogu
     void in_order_tree_walk(node<Key, Value>* start)
     {
-      if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
-            in_order_tree_walk(start->l_son);
-      std::cout<<start->key<<std::endl;
-      if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
-            in_order_tree_walk(start->r_son);
+        if(start==NULL) return;
+        if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
+          in_order_tree_walk(start->l_son);
+          std::cout<<start->key<<std::endl;
+          if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
+          in_order_tree_walk(start->r_son);
      }
     AssocTab(){}
     ~AssocTab()
@@ -249,11 +229,11 @@ template <class Key , class Value> class AssocTab
     }
     private:
     node<Key, Value>* root=NULL;
-    node<Key, Value>* now=NULL;
 };
 
 template <class Key, class Value> bool isKey(Key k, node<Key, Value>* start)
 {
+    if(start==NULL) return false;
     if(start->l_son != NULL)//jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
     if(isKey(k, start->l_son)==true)return true;
     if(start->key==k){return true;}

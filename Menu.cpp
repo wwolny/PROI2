@@ -37,7 +37,7 @@ void Menu::options()
     std::cout<<"[e] edit furniture"<<std::endl;
     //std::cout<<"[p] best ones"<<std::endl; najdrozszy
     //std::cout<<"[m] best ones"<<std::endl; najciezszy
-    //std::cout<<"[t] write down all Furnitures"<<std::endl;
+    std::cout<<"[t] write down all Furnitures"<<std::endl;
     //std::cout<<"[f] write down all Furnitures to file"<<std::endll;
     std::cout<<"[l] leave menu"<<std::endl;
 }
@@ -66,10 +66,10 @@ void Menu::startMenu()
                 break;
             case 'm':
                 this->bestMass();
-                break;
+                break;*/
             case 't':
                 this->writeFurnAll();
-                break;
+                break;/*
             case 'f':
                 this->writeAllFurnFile();
                 break;*/
@@ -115,17 +115,27 @@ int Menu::creFurn()
     else return this->Fail();
 }
 int Menu::delFurn()
-{/*
-    std::string name;
-    writeFormAll(myFleet->fleet);
-    std::cout<<"type exactly the name of formation that should be deleted:";
-    std::cin>>name;
+{
+    char c;
+    int key=-1;
+    writeFurnAll();
+    std::cout<<"type exactly the KEY of furniture that should be deleted:";
+    std::cin>>c;
+    if(!std::isdigit(c))    return this->Fail();
+    std::cin.unget();
+    std::cin>>key;
+    if(!isIntOK())      return this->Fail();
     std::cin.ignore(1000,'\n');
-    if(myFleet->isFormName(name)==1) return this->Fail();
-    if(myFleet->deleteFormation(myFleet->fleet, myFleet->giveForm(name))==1) return this->Success();
-    else return this->Fail();*/
+    if(MyCatalog.delFurnK(key)==1) return this->Success();
+    else return this->Fail();
 }
-int Menu::editFurn(){}/*
+int Menu::editFurn(){}
+int Menu::writeFurnAll()
+{
+    MyCatalog.MyMap.in_order_tree_walk(MyCatalog.MyMap.getRoot());
+}
+
+/*
 int MENU::addUnit(FleetManager* myFleet)
 {
     char c;

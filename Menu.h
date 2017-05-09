@@ -40,6 +40,7 @@ class Menu
         int forCapa(FleetManager* myFleet);
         */
     private:
+        int writeFurnAll();
         void options();
         void writeFurn(int key);
         int creFurn();

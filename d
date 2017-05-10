@@ -1,0 +1,3 @@
+Welcome!
+This is furniture catalog.
+Furnitures that are in the catalog:

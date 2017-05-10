@@ -2,27 +2,26 @@
 
 Menu::Menu()
 {
+    MyCatalog=new Catalog;
 }
 
 Menu::~Menu()
 {
-
+    delete MyCatalog;
 }
 void Menu::writeFurn(int key)
 {
-    Furniture Furn;
-    Furn=MyCatalog.findFurnK(key);
-    std::cout<<"Furniture key: "<<key<<std::endl<<"Name: "<<Furn.getName()<<"   Price: ";
-    std::cout<<Furn.getPrice()<<"   Mass: "<<Furn.getMass()<<std::endl;
+    Furniture* Furn;
+    Furn=MyCatalog->findFurnK(key);
+    std::cout<<"Furniture key: "<<key<<std::endl<<"Name: "<<Furn->getName()<<"   Price: ";
+    std::cout<<Furn->getPrice()<<"   Mass: "<<Furn->getMass()<<std::endl;
     return;
 }
 void Menu::options()
 {
     std::cout<<"[c] create furniture"<<std::endl;
     std::cout<<"[d] delete furniture"<<std::endl;
-    std::cout<<"[e] edit furniture"<<std::endl;/*
-    std::cout<<"[p] the most precious furniture"<<std::endl;
-    std::cout<<"[m] the heaviest furniture"<<std::endl;*/
+    std::cout<<"[e] edit furniture"<<std::endl;
     std::cout<<"[t] write down all Furnitures"<<std::endl;
     std::cout<<"[f] write down all Furnitures to file"<<std::endl;
     std::cout<<"[l] leave menu"<<std::endl;
@@ -46,13 +45,7 @@ void Menu::startMenu()
                 break;
             case 'e':
                 this->editFurn();
-                break;/*
-            case 'p':
-                this->bestPrice();
                 break;
-            case 'm':
-                this->bestMass();
-                break;*/
             case 't':
                 this->writeFurnAll();
                 break;
@@ -97,7 +90,7 @@ int Menu::creFurn()
     std::cin>>mass;
     if(!isIntOK()) return this->Fail();
     std::cin.ignore(1000,'\n');
-    if(MyCatalog.addFurn(key,name, price, mass)==1)return this->Success();
+    if(MyCatalog->addFurn(key,name, price, mass)==1)return this->Success();
     else return this->Fail();
 }
 int Menu::delFurn()
@@ -112,7 +105,7 @@ int Menu::delFurn()
     std::cin>>key;
     if(!isIntOK())      return this->Fail();
     std::cin.ignore(1000,'\n');
-    if(MyCatalog.delFurnK(key)==1) return this->Success();
+    if(MyCatalog->delFurnK(key)==1) return this->Success();
     else return this->Fail();
 }
 int Menu::editFurn()
@@ -128,7 +121,7 @@ int Menu::editFurn()
     std::cin>>key;
     if(!isIntOK())      return this->Fail();
     std::cin.ignore(1000,'\n');
-    if(MyCatalog.isKeyMap(key)==0)return this->Fail();
+    if(MyCatalog->isKeyMap(key)==0)return this->Fail();
     std::cout<<"Type new name of the furniture: ";
     std::cin>>name;
     std::cin.ignore(1000,'\n');
@@ -146,25 +139,12 @@ int Menu::editFurn()
     std::cin>>mass;
     if(!isIntOK()) return this->Fail();
     std::cin.ignore(1000,'\n');
-    /*std::cout<<"Do You want to change the key? [y]: ";
-    std::cin>>c;
-    if(c=='y')
-    {
-        std::cout<<"Type new key of the furniture: ";
-        std::cin>>c;
-        if(!std::isdigit(c))    return this->Fail();
-        std::cin.unget();
-        std::cin>>key;
-        if(!isIntOK())      return this->Fail();
-
-    }*/
-    std::cin.ignore(1000,'\n');
-    if(MyCatalog.editFurn(key,name, price, mass)==1)return this->Success();
+    if(MyCatalog->editFurn(key,name, price, mass)==1)return this->Success();
     else return this->Fail();
 }
 int Menu::writeFurnAll()
 {
-    MyCatalog.allWrite();
+    MyCatalog->allWrite();
     return 1;
 }
 int Menu::writeAllFurnFile()
@@ -173,7 +153,7 @@ int Menu::writeAllFurnFile()
     std::cout<<"Type name of file: ";
     std::cin>>fname;
     std::cin.ignore(1000,'\n');
-    if(MyCatalog.allFile(fname)==1)return Success();
+    if(MyCatalog->allFile(fname)==1)return Success();
     else return Fail();
 }
 //-----------------------

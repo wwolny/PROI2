@@ -16,7 +16,7 @@ class Catalog
         int editFurn(int key, std::string newName="", int newPrice=-1, int newMass=-1);
         int allFile(std::string fname);
         int isKeyMap(int key);
-        Furniture findFurnK(int key);
+        Furniture* findFurnK(int key);
         int allWrite();
         Catalog();
         ~Catalog();
@@ -24,7 +24,7 @@ class Catalog
         node<int, Furniture>* findFurn(int key);
         void orderWrite(node<int, Furniture>* start);
         void orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile);
-        AssocTab<int, Furniture> MyMap;
+        AssocTab<int, Furniture>* MyMap;
 };
 
 #endif // CATALOG_H

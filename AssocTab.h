@@ -6,7 +6,7 @@
 template <class Key, class Value> struct node
  {
     Key key;
-    Value val;
+    Value *val;
     struct node *parent;
     struct node *l_son;
     struct node *r_son;
@@ -69,7 +69,7 @@ template <class Key , class Value> class AssocTab
        return NULL;
      }
 
-    int addNode(Key n, Value m, node<Key, Value>* start)
+    int addNode(Key n, Value* m, node<Key, Value>* start)
     {
       //jezeli drzewo jest puste to dodaj korzen
       if (root == NULL)

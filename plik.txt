@@ -1,0 +1,14 @@
+Welcome!
+This is furniture catalog.
+Furnitures that are in the catalog:
+Key: 22    Name: desk     Price: 400      Mass: 25
+Key: 23    Name: wardrobe     Price: 400      Mass: 25
+Key: 33    Name: radio     Price: 14      Mass: 35
+Key: 34    Name: window     Price: 14      Mass: 53
+Key: 36    Name: lamp     Price: 14      Mass: 35
+Key: 38    Name: table     Price: 14      Mass: 35
+Key: 51    Name: regel     Price: 100      Mass: 5
+Key: 52    Name: sofa     Price: 100      Mass: 5
+Key: 59    Name: chair     Price: 100      Mass: 5
+Key: 61    Name: bed     Price: 14      Mass: 53
+Key: 65    Name: bed     Price: 14      Mass: 53

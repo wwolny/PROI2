@@ -9,8 +9,8 @@ using namespace std;
 int main()
 {
     Test newTest;
-    //if(newTest.ifFile()==1) std::cout<<"file: ok"<<std::endl;
-    //if(newTest.editCat()==1) std::cout<<"adding and deleting: ok"<<std::endl;
+    if(newTest.ifFile()==1) std::cout<<"file: ok"<<std::endl;
+    if(newTest.editCat()==1) std::cout<<"adding and deleting: ok"<<std::endl;
     Menu MyMenu;
     MyMenu.startMenu();
     cout << "Hello world!" << endl;

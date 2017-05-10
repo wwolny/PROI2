@@ -10,11 +10,10 @@ class Test
     public:
         Test();
         ~Test();
-        bool ifAssocArr();
         bool ifFile();
         bool editCat();
     private:
-        Catalog* MyMap;
+        Catalog *MyMap;
 };
 
 #endif // TEST_H

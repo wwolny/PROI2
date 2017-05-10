@@ -24,7 +24,7 @@ class Menu
         int Success();
         int Fail();
         int isIntOK();
-        Catalog MyCatalog;
+        Catalog *MyCatalog;
 
 
 };

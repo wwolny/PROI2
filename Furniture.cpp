@@ -2,7 +2,6 @@
 
 Furniture::~Furniture()
 {
-    //dtor
 }
 Furniture::Furniture(const Furniture &tmp)
 {

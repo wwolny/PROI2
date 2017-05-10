@@ -14,6 +14,7 @@ template <class Key, class Value> struct node
     node(Key k, Value v): key(k), val(v), l_son(NULL), r_son(NULL), parent(NULL){}
     ~node()
     {
+        delete val;
         parent=NULL;
         l_son=NULL;
         r_son=NULL;

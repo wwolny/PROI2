@@ -13,7 +13,7 @@ int main()
     if(newTest.editCat()==1) std::cout<<"adding and deleting: ok"<<std::endl;
     Menu MyMenu;
     MyMenu.startMenu();
-    cout << "Hello world!" << endl;
+    cout << "Goodbye!" << endl;
 
     return 0;
 }

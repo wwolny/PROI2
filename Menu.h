@@ -14,6 +14,7 @@ class Menu
         void startMenu();
     private:
         int writeFurnAll();
+        void orderWrite(node<int, Furniture>* start);
         void options();
         void writeFurn(int key);
         int writeAllFurnFile();

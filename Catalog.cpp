@@ -45,6 +45,7 @@ int Catalog::allFile(std::string fname)//wypisz wszystkie w pliku
     file<<"Welcome!"<<std::endl<<"This is furniture catalog."<<std::endl;
     file<<"Furnitures that are in the catalog:"<<std::endl;
     orderOutToFile(MyMap->getRoot(), pfile);
+    file.close();
     return 1;
 }
 void Catalog::orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile)
@@ -59,26 +60,6 @@ void Catalog::orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile)
     *pfile<<"     Price: "<<start->val->getPrice()<<"      Mass: "<<start->val->getMass()<<std::endl;
     if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
         orderOutToFile(start->r_son, pfile);
-}
-//-------------------------------------------------
-int Catalog::allWrite()//wypisz wszystkie w pliku
-{
-    std::cout<<"Furnitures that are in the catalog:"<<std::endl;
-    orderWrite(MyMap->getRoot());
-    return 1;
-}
-void Catalog::orderWrite(node<int, Furniture>* start)
-{
-    if(start==NULL) return;
-    if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
-    {
-        orderWrite(start->l_son);
-    }
-    std::cout<<"Key: "<<start->key<<"    Name: ";
-    std::cout<<start->val->getName();
-    std::cout<<"     Price: "<<start->val->getPrice()<<"      Mass: "<<start->val->getMass()<<std::endl;
-    if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
-        orderWrite(start->r_son);
 }
 //-------------------------------------------------
 node<int, Furniture>* Catalog::findFurn(int key)
@@ -97,4 +78,8 @@ int Catalog::isKeyMap(int key)
 {
     if(isKey(key, MyMap->getRoot())==true) return 1;//There is Key
     else return 0;//There is no key
+}
+node<int, Furniture>* Catalog::getRoot()
+{
+    return MyMap->getRoot();
 }

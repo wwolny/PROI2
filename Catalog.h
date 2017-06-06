@@ -17,12 +17,11 @@ class Catalog
         int allFile(std::string fname);
         int isKeyMap(int key);
         Furniture* findFurnK(int key);
-        int allWrite();
+        node<int, Furniture>* getRoot();
         Catalog();
         ~Catalog();
         private:
         node<int, Furniture>* findFurn(int key);
-        void orderWrite(node<int, Furniture>* start);
         void orderOutToFile(node<int, Furniture>* start, std::ofstream* pfile);
         AssocTab<int, Furniture>* MyMap;
 };

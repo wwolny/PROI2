@@ -144,8 +144,23 @@ int Menu::editFurn()
 }
 int Menu::writeFurnAll()
 {
-    MyCatalog->allWrite();
+    std::cout<<"Furnitures that are in the catalog:"<<std::endl;
+    orderWrite(MyCatalog->getRoot());
     return 1;
+
+}
+void Menu::orderWrite(node<int, Furniture>* start)
+{
+    if(start==NULL) return;
+    if(start->l_son != NULL) //jezeli ma dzieci po lewej stronie wywolaj funkcje rekurencyjnie
+    {
+        orderWrite(start->l_son);
+    }
+    std::cout<<"Key: "<<start->key<<"    Name: ";
+    std::cout<<start->val->getName();
+    std::cout<<"     Price: "<<start->val->getPrice()<<"      Mass: "<<start->val->getMass()<<std::endl;
+    if(start->r_son != NULL) //jezeli ma dzieci po prawej stronie wywolaj rekurencyjnie
+        orderWrite(start->r_son);
 }
 int Menu::writeAllFurnFile()
 {
